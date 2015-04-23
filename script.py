@@ -36,7 +36,8 @@ def handle_one(tar_filename):
     number = re.search(r'sandstorm-(\d+).tar.xz',
                        tar_filename).group(1)
 
-    make_branch = ['git', 'tag', 'sandstorm-0.%s' % (number,), revision, '-m', 'Release sandstorm-0.%s' % (number,)]
+    tag_name = 'v0.%s' % (number,)
+    make_branch = ['git', 'tag', tag_name, revision, '-m', 'Release %s' % (tag_name,)]
     print ' '.join(make_branch)
     env = os.environ.copy()
     env['GIT_COMMITTER_DATE'] = filename2date(revision_filename)
