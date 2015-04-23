@@ -61,7 +61,7 @@ def main():
     # Uncompress it, etc.
     for tar_filename in tar_filenames:
         os.chdir(tmpdir)
-        tmpdir = handle_one(tar_filename)
+        handle_one(tar_filename)
 
 
 def filename2date(f):
